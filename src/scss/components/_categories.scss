@@ -1,11 +1,12 @@
-@import '../variables';
+@import "../variables";
 
 .categories {
   ul {
     display: flex;
 
     li {
-      background-color: #f9f9f9;
+      background-color: #10d118;
+      color: #1c1b1b;
       padding: 13px 30px;
       border-radius: 30px;
       margin-right: 10px;
@@ -15,16 +16,18 @@
       @include noselect();
 
       &:hover {
-        background-color: darken(#f9f9f9, 2%);
+        background-color: darken(#282828, 2%);
+        color: #10d118;
       }
 
       &:active {
-        background-color: darken(#f9f9f9, 5%);
+        background-color: darken(#282828, 5%);
+        color: #10d118;
       }
 
       &.active {
         background-color: #282828;
-        color: #fff;
+        color: #10d118;
       }
     }
   }

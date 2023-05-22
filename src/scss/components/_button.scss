@@ -1,20 +1,21 @@
-@import '../variables';
+@import "../variables";
 
 .button {
   display: inline-block;
-  background-color: $orange;
+  background-color: #10d118;
   border-radius: 30px;
   padding: 10px 20px;
   min-width: 100px;
   text-align: center;
   cursor: pointer;
-  transition: background-color $duration ease-in-out, border-color $duration ease-in-out;
+  transition: background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
   border: 1px solid transparent;
   @include noselect();
 
   &,
   span {
-    color: #fff;
+    color: #1c1b1b;
     // color: palegreen;
   }
 
@@ -26,11 +27,11 @@
   }
 
   &:hover {
-    background-color: darken($orange, 8%);
+    background-color: darken(#10d118, 8%);
   }
 
   &:active {
-    background-color: darken($orange, 12%);
+    background-color: darken(#10d118, 12%);
     transform: translateY(1px);
   }
 
@@ -55,37 +56,37 @@
   }
 
   &--outline {
-    background-color: #fff;
+    background-color: #1c1b1b;
     // background-color: purple;
-    border-color: $orange;
+    border-color: #10d118;
     &,
     span {
-      color: $orange;
+      color: #10d118;
     }
 
     svg {
       path {
-        fill: $orange;
+        fill: #10d118;
       }
     }
 
     &:hover {
-      background-color: $orange;
+      background-color: #10d118;
 
       &,
       span {
-        color: #fff;
+        color: #1c1b1b;
       }
 
       svg {
         path {
-          fill: #fff;
+          fill: #1c1b1b;
         }
       }
     }
 
     &:active {
-      background-color: darken($orange, 8%);
+      background-color: darken(#10d118, 8%);
     }
   }
 
@@ -109,16 +110,16 @@
 
     &:hover {
       i {
-        background-color: #fff;
-        color: $orange;
+        background-color: #1c1b1b;
+        color: #10d118;
       }
     }
 
     i {
       display: inline-block;
       border-radius: 30px;
-      background-color: $orange;
-      color: #fff;
+      background-color: #10d118;
+      color: #1c1b1b;
       font-weight: 600;
       width: 22px;
       height: 22px;

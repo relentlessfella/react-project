@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../variables";
 
 .sort {
   position: relative;
@@ -19,8 +19,8 @@
     }
 
     span {
-      color: $orange;
-      border-bottom: 1px dashed $orange;
+      color: #10d118;
+      border-bottom: 1px dashed #10d118;
     }
     cursor: pointer;
   }
@@ -28,7 +28,7 @@
     position: absolute;
     right: 0;
     margin-top: 15px;
-    background: #ffffff;
+    background: #282828;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     overflow: hidden;
@@ -42,12 +42,12 @@
 
         &.active,
         &:hover {
-          background: rgba(254, 95, 30, 0.05);
+          background: rgba(16, 209, 24, 0.05);
         }
 
         &.active {
           font-weight: bold;
-          color: $orange;
+          color: #10d118;
         }
       }
     }

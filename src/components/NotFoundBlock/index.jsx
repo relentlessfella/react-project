@@ -1,11 +1,11 @@
-import React from 'react';
-import styles from './NotFoundBlock.module.scss';
+import React from "react";
+import styles from "./NotFoundBlock.module.scss";
 
 export const NotFound = () => {
   return (
     <div className={styles.root}>
       <h1>
-        <span>;(</span>
+        <span></span>
         <br />
         NotFound
       </h1>

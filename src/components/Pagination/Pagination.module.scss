@@ -2,28 +2,26 @@
   display: flex;
   width: 200px;
   justify-content: space-between;
-  //   :global {
 
-  //   }
   a {
     margin-right: 13px;
-    color: #fe5f1e;
+    color: #10d118;
     padding: 6px 12px;
-    border: solid 1px #fe5f1e;
+    border: solid 1px #10d118;
     border-radius: 17px;
     cursor: pointer;
     &:hover {
-      color: #fff;
-      background-color: #fe5f1e;
+      color: #1c1b1b;
+      background-color: #10d118;
     }
   }
 
-  :global{ 
-    .selected{
-        a {
-            background-color: #fe5f1e;
-            color: #fff;
-        }
+  :global {
+    .selected {
+      a {
+        background-color: #10d118;
+        color: #1c1b1b;
+      }
     }
   }
 }
