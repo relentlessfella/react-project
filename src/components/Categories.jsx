@@ -1,14 +1,7 @@
-import React, { memo } from "react";
+import React, { memo } from 'react';
 
 function Categories({ value, onChangeCategory }) {
-  const categories = [
-    "Все",
-    "Футболка",
-    "Брюки",
-    "Платье",
-    "Классика",
-    "Закрытые",
-  ];
+  const categories = ['Все', 'Мужские', 'Женские', 'Для детей'];
   return (
     <div className="categories">
       <ul>
@@ -16,9 +9,8 @@ function Categories({ value, onChangeCategory }) {
           return (
             <li
               key={categoryName}
-              className={value === index ? "active" : ""}
-              onClick={() => onChangeCategory(index)}
-            >
+              className={value === index ? 'active' : ''}
+              onClick={() => onChangeCategory(index)}>
               {categoryName}
             </li>
           );
