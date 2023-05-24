@@ -5,22 +5,22 @@
 
   a {
     margin-right: 13px;
-    color: #FAEBD7;
+    color: #2F4F4F;
     padding: 6px 12px;
-    border: solid 1px #FAEBD7;
+    border: solid 1px #2F4F4F;
     border-radius: 17px;
     cursor: pointer;
     &:hover {
-      color: #1c1b1b;
-      background-color: #FAEBD7;
+      color: #FFFFFF;
+      background-color: #000000;
     }
   }
 
   :global {
     .selected {
       a {
-        background-color: #FAEBD7;
-        color: #1c1b1b;
+        background-color: #2F4F4F;
+        color: #FFFFFF;
       }
     }
   }

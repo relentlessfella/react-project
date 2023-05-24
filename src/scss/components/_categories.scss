@@ -16,18 +16,18 @@
       @include noselect();
 
       &:hover {
-        background-color: darken(#a0a0a0, 2%);
+        background-color: darken(#000000, 2%);
         color: #FFFFFF;
       }
 
       &:active {
-        background-color: darken(#a0a0a0, 5%);
+        background-color: darken(#000000, 5%);
         color: #2F4F4F;
       }
 
       &.active {
-        background-color: #a4a2a2;
-        color: #2F4F4F;
+        background-color: #000000;
+        color: #FFFFFF;
       }
     }
   }
