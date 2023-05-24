@@ -3,13 +3,14 @@
 @import "./components/all";
 
 body {
-  background-color: #fff;
+  background-color: #2F4F4F;
 }
 
 .wrapper {
   width: calc(100vw - 100px);
   height: 100%;
-  background-color: #1c1b1b;
+  // background-color: #593E1A;
+  background-color: #eceef0;
   margin: 50px auto;
   border-radius: 10px;
   max-width: 1400px;
@@ -154,7 +155,7 @@ body {
   &__item {
     display: flex;
     width: 100%;
-    border-top: 1px solid #10d118;
+    border-top: 1px solid #2F4F4F;
     padding-top: 30px;
     margin-top: 30px;
 
@@ -228,14 +229,14 @@ body {
       width: 4%;
 
       .button {
-        border-color: darken($color: #10d118, $amount: 10);
+        border-color: darken($color: #2F4F4F, $amount: 10);
       }
 
       svg {
         transform: rotate(45deg);
 
         path {
-          fill: darken($color: #10d118, $amount: 15);
+          fill: darken($color: #2F4F4F, $amount: 15);
         }
       }
 
@@ -247,8 +248,8 @@ body {
         }
         &:hover,
         &:active {
-          border-color: darken($color: #10d118, $amount: 80);
-          background-color: darken($color: #10d118, $amount: 80);
+          border-color: darken($color: #2F4F4F, $amount: 80);
+          background-color: darken($color: #2F4F4F, $amount: 80);
         }
       }
     }
@@ -266,7 +267,7 @@ body {
 
         &:last-of-type {
           b {
-            color: #10d118;
+            color: #2F4F4F;
           }
         }
       }
@@ -283,20 +284,20 @@ body {
         justify-content: center;
         width: 210px;
 
-        border-color: darken($color: #10d118, $amount: 10);
+        border-color: darken($color: #2F4F4F, $amount: 10);
 
         span {
-          color: darken($color: #10d118, $amount: 20);
+          color: darken($color: #2F4F4F, $amount: 20);
           font-weight: 500;
           font-weight: 600;
         }
 
         &:hover {
-          background-color: darken($color: #10d118, $amount: 90);
-          border-color: darken($color: #10d118, $amount: 90);
+          background-color: darken($color: #2F4F4F, $amount: 90);
+          border-color: darken($color: #2F4F4F, $amount: 90);
 
           span {
-            color: #10d118;
+            color: #2F4F4F;
           }
         }
 

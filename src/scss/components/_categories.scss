@@ -5,7 +5,7 @@
     display: flex;
 
     li {
-      background-color: #10d118;
+      background-color: #2F4F4F;
       color: #1c1b1b;
       padding: 13px 30px;
       border-radius: 30px;
@@ -17,17 +17,17 @@
 
       &:hover {
         background-color: darken(#282828, 2%);
-        color: #10d118;
+        color: #2F4F4F;
       }
 
       &:active {
         background-color: darken(#282828, 5%);
-        color: #10d118;
+        color: #2F4F4F;
       }
 
       &.active {
         background-color: #282828;
-        color: #10d118;
+        color: #2F4F4F;
       }
     }
   }

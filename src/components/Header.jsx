@@ -1,6 +1,6 @@
-import logoSvg from "../assets/img/logo.svg";
-import { Link } from "react-router-dom";
-import Search from "./Search";
+import logoSvg from '../assets/img/logo.svg';
+import { Link } from 'react-router-dom';
+import Search from './Search';
 
 function Header() {
   return (
@@ -11,7 +11,7 @@ function Header() {
             <img width="38" src={logoSvg} alt="Pizza logo" />
             <div>
               <h1>Nurgali & Ramazan</h1>
-              <p>Best fucking shop</p>
+              <p>Clothing shop</p>
             </div>
           </div>
         </Link>
@@ -25,8 +25,7 @@ function Header() {
               height="18"
               viewBox="0 0 18 18"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+              xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M6.33333 16.3334C7.06971 16.3334 7.66667 15.7364 7.66667 15C7.66667 14.2636 7.06971 13.6667 6.33333 13.6667C5.59695 13.6667 5 14.2636 5 15C5 15.7364 5.59695 16.3334 6.33333 16.3334Z"
                 stroke="#1C1B1B"

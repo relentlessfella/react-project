@@ -5,21 +5,21 @@
 
   a {
     margin-right: 13px;
-    color: #10d118;
+    color: #FAEBD7;
     padding: 6px 12px;
-    border: solid 1px #10d118;
+    border: solid 1px #FAEBD7;
     border-radius: 17px;
     cursor: pointer;
     &:hover {
       color: #1c1b1b;
-      background-color: #10d118;
+      background-color: #FAEBD7;
     }
   }
 
   :global {
     .selected {
       a {
-        background-color: #10d118;
+        background-color: #FAEBD7;
         color: #1c1b1b;
       }
     }

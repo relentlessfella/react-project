@@ -1,8 +1,10 @@
 .root {
   display: flex;
   position: relative;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  // border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #708090;
   border-radius: 10px;
+  background-color: #1c1b1b;
   left: -100px;
   width: 400px;
   -webkit-transition: width 0.35s ease-in-out;
@@ -23,7 +25,7 @@
   width: 330px;
   font-size: 16px;
   background-color: #1c1b1b;
-  color: #10d118;
+  color: #FAEBD7  ;
 }
 .cancelIcon {
   width: 22px;
