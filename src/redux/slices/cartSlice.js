@@ -1,28 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { act } from 'react-dom/test-utils';
+import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 
 const initialState = {
   totalPrice: 0,
   items: [],
 };
 
-export const filterSlice = createSlice({
-  name: 'cart',
+export const cartSlice = createSlice({
+  name: "cart",
   initialState,
   reducers: {
-    addItem(state, action){
+    addItem(state, action) {
       state.items.push(action.payload);
     },
-    removeItem(state, action){
-        state.items.push(action.payload);
+    removeItem(state, action) {
+      state.items = state.items.filter((obj) => obj.id !== action.payload);
     },
-    addItem(state, action){
-        state.items.push(action.payload);
-      },
+    clearItem(state) {
+      state.items = [];
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setCategotyId, setSort, setCurrentPage, setCurrentSort, setFilters } = filterSlice.actions;
+export const { addItem, removeItem, clearItem } = cartSlice.actions;
 
-export default filterSlice.reducer; 
+export default cartSlice.reducer;
