@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import Search from './Search';
 
 function Header() {
+<<<<<<< HEAD
+=======
+  const { items, totalPrice } = useSelector((state) => state.cart);
+
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
+>>>>>>> origin/newSwiss
   return (
     <div className="header">
       <div className="container">
@@ -49,7 +56,11 @@ function Header() {
               />
             </svg>
 
+<<<<<<< HEAD
             <span>0</span>
+=======
+            <span>{totalCount}</span>
+>>>>>>> origin/newSwiss
           </Link>
         </div>
       </div>
