@@ -1,11 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import CartItem from "../components/CartItem";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import CartItem from '../components/CartItem';
+import { clearItem } from '../redux/slices/cartSlice';
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.cart.items);
+  const { totalPrice, items } = useSelector((state) => state.cart);
+
+  const totalCount = items.reduce((sum, item) => sum + item.count, 0);
+
+  const onClickClear = () => {
+    if (window.confirm('Очистить?')) {
+      dispatch(clearItem());
+    }
+  };
 
   return (
     <div class="content">
@@ -18,8 +27,7 @@ const Cart = () => {
                 height="18"
                 viewBox="0 0 18 18"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+                xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M6.33333 16.3333C7.06971 16.3333 7.66667 15.7364 7.66667 15C7.66667 14.2636 7.06971 13.6667 6.33333 13.6667C5.59695 13.6667 5 14.2636 5 15C5 15.7364 5.59695 16.3333 6.33333 16.3333Z"
                   stroke="white"
@@ -44,14 +52,13 @@ const Cart = () => {
               </svg>
               Корзина
             </h2>
-            <div class="cart__clear">
+            <div onClick={onClickClear} class="cart__clear">
               <svg
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+                xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M2.5 5H4.16667H17.5"
                   stroke="#B6B6B6"
@@ -81,8 +88,6 @@ const Cart = () => {
                   stroke-linejoin="round"
                 />
               </svg>
-
-              <span>Очистить корзину</span>
             </div>
           </div>
           <div class="content__items">
@@ -91,28 +96,24 @@ const Cart = () => {
             ))}
           </div>
           <div class="cart__bottom">
-            {/* <div class="cart__bottom-details">
+            <div class="cart__bottom-details">
               <span>
-                {" "}
-                Всего товаров: <b>3 шт.</b>{" "}
+                {' '}
+                Всего товаров: <b>{totalCount} шт.</b>{' '}
               </span>
               <span>
-                {" "}
-                Сумма заказа: <b>900 ₽</b>{" "}
+                {' '}
+                Сумма заказа: <b>{totalPrice} тг</b>{' '}
               </span>
-            </div> */}
+            </div>
             <div class="cart__bottom-buttons">
-              <Link
-                to="/"
-                class="button button--outline button--add go-back-btn"
-              >
+              <Link to="/" class="button button--outline button--add go-back-btn">
                 <svg
                   width="8"
                   height="14"
                   viewBox="0 0 8 14"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                  xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M7 13L1 6.93015L6.86175 1"
                     stroke="#D3D3D3"
@@ -122,7 +123,7 @@ const Cart = () => {
                   />
                 </svg>
 
-                <span>Вернуться назад</span>
+                <span style={{ color: 'white' }}>Вернуться назад</span>
               </Link>
               {/* <div class="button pay-btn">
                 <span>Оплатить сейчас</span>

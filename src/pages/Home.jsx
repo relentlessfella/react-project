@@ -1,25 +1,19 @@
-import React from "react";
-import Categories from "../components/Categories";
-import Sort, { sortList } from "../components/Sort";
-import PizzaBlock from "../components/PizzaBlock";
-import axios from "axios";
-import qs from "qs";
-import Skeleton from "../components/PizzaBlock/Skeleton";
-import Pagination from "../components/Pagination";
-import { useSelector, useDispatch } from "react-redux";
-import { SearchContext } from "../App";
-import {
-  setCategotyId,
-  setCurrentPage,
-  setFilters,
-} from "../redux/slices/filterSlice";
-import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
+import React from 'react';
+import Categories from '../components/Categories';
+import Sort, { sortList } from '../components/Sort';
+import ItemBlock from '../components/ItemBlock';
+import axios from 'axios';
+import qs from 'qs';
+import Skeleton from '../components/ItemBlock/Skeleton';
+import Pagination from '../components/Pagination';
+import { useSelector, useDispatch } from 'react-redux';
+import { SearchContext } from '../App';
+import { setCategotyId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
+import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 
 const Home = () => {
-  const { categoryId, sort, currentPage } = useSelector(
-    (state) => state.filter
-  );
+  const { categoryId, sort, currentPage } = useSelector((state) => state.filter);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
   const { searchValue } = React.useContext(SearchContext);
   const [items, setItems] = React.useState([]);
@@ -36,37 +30,37 @@ const Home = () => {
     dispatch(setCurrentPage(number));
   };
   // Фасад для получения данных с API
-  const PizzaService = {
-    fetchPizzas: async (sortType, categoryId, searchValue, currentPage) => {
-      const sortBy = sortType.replace("-", "");
-      const order = sortType.includes("-") ? "asc" : "desc";
-      const category = categoryId > 0 ? `category=${categoryId}` : "";
-      const search = searchValue ? `&search=${searchValue}` : "";
+  const sneakerservice = {
+    fetchItems: async (sortType, categoryId, searchValue, currentPage) => {
+      const sortBy = sortType.replace('-', '');
+      const order = sortType.includes('-') ? 'asc' : 'desc';
+      const category = categoryId > 0 ? `category=${categoryId}` : '';
+      const search = searchValue ? `&search=${searchValue}` : '';
 
       try {
         const response = await axios.get(
-          `https://62d6a13a51e6e8f06f0ecb04.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+          `https://62d6a13a51e6e8f06f0ecb04.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`,
         );
 
         return response.data;
       } catch (error) {
-        throw new Error("Failed to fetch pizzas");
+        throw new Error('Failed to fetch sneakers');
       }
     },
   };
 
   // Использование фасада
-  const fetchPizzas = async () => {
+  const fetchItems = async () => {
     setIsLoading(true);
 
     try {
-      const pizzas = await PizzaService.fetchPizzas(
+      const sneakers = await sneakerservice.fetchItems(
         sortType,
         categoryId,
         searchValue,
-        currentPage
+        currentPage,
       );
-      setItems(pizzas);
+      setItems(sneakers);
     } catch (error) {
       // Обработка ошибки
       console.error(error);
@@ -75,24 +69,20 @@ const Home = () => {
     }
   };
 
-  const skeletons = [...new Array(8)].map((_, index) => (
-    <Skeleton key={index} />
-  ));
-  const pizzas = items.map((obj) => <PizzaBlock key={obj.id} {...obj} />);
+  const skeletons = [...new Array(8)].map((_, index) => <Skeleton key={index} />);
+  const sneakers = items.map((obj) => <ItemBlock key={obj.id} {...obj} />);
 
   //Если был первый рендер, то проверяем URL-параметры и созраняем в редуксе
   React.useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
-      const sort = sortList.find(
-        (obj) => obj.sortProperty == params.sortProperty
-      );
+      const sort = sortList.find((obj) => obj.sortProperty == params.sortProperty);
       console.log(params);
       dispatch(
         setFilters({
           ...params,
           sort,
-        })
+        }),
       );
       isSearch.current = true;
     }
@@ -113,11 +103,11 @@ const Home = () => {
     isMounted.current = true;
   }, [categoryId, sort.sortProperty, currentPage]);
 
-  //Если был первый рендер, то запрашиваем пиццы
+  //Если был первый рендер, то запрашиваем товар
   React.useEffect(() => {
     window.scrollTo(0, 0);
     if (!isSearch.current) {
-      fetchPizzas();
+      fetchItems();
     }
     isSearch.current = false;
   }, [categoryId, sortType, searchValue, currentPage]);
@@ -128,8 +118,8 @@ const Home = () => {
         <Categories value={categoryId} onChangeCategory={onChangeCategory} />
         <Sort />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
-      <div className="content__items">{isLoading ? skeletons : pizzas}</div>
+      <h2 className="content__title">Все товары</h2>
+      <div className="content__items">{isLoading ? skeletons : sneakers}</div>
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
