@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.cart.items);
+
   return (
     <div class="content">
       <div class="container container--cart">
